@@ -51,10 +51,13 @@ public:
 };
 
 int main() {
+	
 	string_queue str;
 	str.push("здравствуйте");
 	str.push("можно 4?");
 	str.push("пожалуйста");
+	
 	cout << str.pop() << endl << str.pop() << endl << str.pop();
+	
 	return 0;
 }
