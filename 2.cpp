@@ -13,19 +13,19 @@ struct Node {
 class string_queue {
 	Node* head;
   
-public:
+ public:
 	string_queue():head(NULL) {}
 	void push(string x) {
 		if (head == NULL) {
 			head = new Node;
-			head->data = x;
+			head -> data = x;
 		}
 		Node* temp = head;
-		while (temp->next != NULL) {
-			temp = temp->next;
+		while (temp -> next != NULL) {
+			temp = temp -> next;
 		}
-		temp->next = new Node;
-		temp->next->data = x;
+		temp -> next = new Node;
+		temp -> next -> data = x;
 	}
   
 	 string pop() {
@@ -35,8 +35,8 @@ public:
 		}
     
 		Node* temp = head;
-		head = head->next;
-		string x = head->data;
+		head = head -> next;
+		string x = head -> data;
 		delete temp;
 		return x;
 	}
@@ -44,7 +44,7 @@ public:
 	~string_queue() {
 		while (head != NULL) {
 			Node* temp = head;
-			head = head->next;
+			head = head -> next;
 			delete temp;
 		}
 	}
