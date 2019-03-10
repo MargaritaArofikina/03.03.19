@@ -15,8 +15,10 @@ struct Node {
 class char_deque {
 	Node* head;
 	Node* tail;
-public:
+
+ public:
 	char_deque(): head(NULL){}
+
 	void push_front(char x) {
 		if (head == NULL) {
 			head = new Node;
@@ -24,22 +26,12 @@ public:
 			head -> data = x;
 		}
 		head -> prev = new Node;
-		head -> prev->next = head;
-		head = head->prev;
+		head -> prev -> next = head;
+		head = head -> prev;
 		head -> data = x;
 	}
-	void push_back(char x) {
-		if (head == NULL) {
-			head = new Node;
-			tail = head;
-			head -> data = x;
-		}
-		tail -> next = new Node;
-		tail -> next->prev = tail;
-		tail = tail->next;
-		tail -> data = x;
-	}
-	char pop_front() {
+	
+        char pop_front() {
 		if (head == NULL) {
 			cout << "дек пустой";
 			return 0;
@@ -50,6 +42,19 @@ public:
 		delete temp;
 		return x;
 	}
+	
+	void push_back(char x) {
+		if (head == NULL) {
+			head = new Node;
+			tail = head;
+			head -> data = x;
+		}
+		tail -> next = new Node;
+		tail -> next -> prev = tail;
+		tail = tail -> next;
+		tail -> data = x;
+	}
+
 	char pop_back() {
 		if (head == NULL) {
 			cout << "дек пустой";
@@ -61,6 +66,7 @@ public:
 		delete temp;
 		return x;
 	}
+  
 	~char_deque() {
 		while (head != NULL) {
 			Node* temp = head;
